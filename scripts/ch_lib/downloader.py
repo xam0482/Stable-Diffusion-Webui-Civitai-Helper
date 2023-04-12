@@ -56,7 +56,10 @@ def dl(url, folder, filename, filepath):
         
         # with folder and filename, now we have the full file path
         file_path = os.path.join(folder, filename)
-
+        base1, ext1 = os.path.splitext(file_path)
+        file_path = os.path.join(base1, filename)
+        if not os.path.exists(base1):
+            os.makedirs(base1)
 
     util.printD("Target file path: " + file_path)
     base, ext = os.path.splitext(file_path)
